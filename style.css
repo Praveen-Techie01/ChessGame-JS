@@ -1,0 +1,21 @@
+body {
+    background: radial-gradient(circle, #0077ea, #1f4f96, #1b2949, #000);
+}
+
+h1,
+h5 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#chessCanvas {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    border-color: black;
+}
+
+#currentTeamText {
+    align-content: center;
+    font-family: 'Bungee', cursive;
+}
