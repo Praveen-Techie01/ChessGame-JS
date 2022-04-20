@@ -100,15 +100,12 @@ function onClick(event) {
         }
         moveSelectedPiece(x, y);
         checkCheckmate(x, y);
-
         movable = [];
-
     } else {
         curX = x;
         curY = y;
     }
     if (checking) {
-        console.log("check 2 ");
         checking = false;
         drawBoard();
         drawPieces();
@@ -119,30 +116,19 @@ function onClick(event) {
         drawBoard();
         checkPossiblePlays();
         drawPieces();
-        // changeCurrentTeam();
     }
-
-
 }
 
 function checkCheckmate() {
     checking = true;
-    console.warn("CHECKING.....");
-    console.log(x, y);
-
     curX = x;
     curY = y;
-    // drawBoard();
     checkPossiblePlays();
-    console.log(movable);
-    // drawPieces();
-    // changeCurrentTeam();
+
     King_Pos = [
         [BlackKingX, BlackKingY],
         [WhiteKingX, WhiteKingY],
     ]
-    console.log(King_Pos);
-    console.log(movable);
     var flag = 0;
     var have = 0;
     for (let i = 0; i < King_Pos.length; i++) {
@@ -163,8 +149,7 @@ function checkCheckmate() {
         alert("CHECKMATE !!!")
         window.location.reload();
     } else {
-        console.log("Not a checkmate");
-        board.resetValidMoves();
+        board.resetValidMoves()
     }
 }
 
@@ -175,15 +160,10 @@ function checkPossiblePlays() {
     let tile = board.tiles[curY][curX];
     if (checking) {
         console.log("Check 1");
-        // changeCurrentTeam();
     } else {
         if (tile.team === EMPTY || tile.team !== currentTeam) return;
         drawTile(curX, curY, HIGHLIGHT_COLOR);
     }
-
-
-
-
     board.resetValidMoves();
 
     if (tile.pieceType === SOLDIER) checkPossiblePlaysSOLDIER(curX, curY);
@@ -211,10 +191,6 @@ function checkPossiblePlaysSOLDIER(curX, curY) {
     if (curX - 1 >= 0) checkPossibleCapture(curX - 1, curY + direction);
 
     if (curX + 1 <= BOARD_WIDTH - 1) checkPossibleCapture(curX + 1, curY + direction);
-
-    // if (curY === 0 || curY === 7) {
-    //     tile.pieceType
-    // }
 }
 
 
@@ -314,7 +290,6 @@ function checkPossibleMove(x, y) {
         FLAG1 = true;
 
     }
-
     if (checking) {
         movable.push([x, y]);
         return true;
@@ -390,52 +365,19 @@ function moveSelectedPiece(x, y) {
     board.tiles[y][x].team = board.tiles[curY][curX].team;
 
     if (board.tiles[y][x].team == BLACK && board.tiles[y][x].pieceType == KING) {
-        console.log("BLACK : " + x, y, curX, curY);
         BlackKingX = x;
         BlackKingY = y;
     }
     if (board.tiles[y][x].team == WHITE && board.tiles[y][x].pieceType == KING) {
-        console.log("BLACK : " + x, y, curX, curY);
         WhiteKingX = x;
         WhiteKingY = y;
     }
     board.tiles[curY][curX].pieceType = EMPTY;
     board.tiles[curY][curX].team = EMPTY;
-    // if (checking) checking = false;
     curX = -1;
     curY = -1;
     board.resetValidMoves();
 }
-
-
-
-
-
-
-
-
-// checkCheckmate(board.tiles[y][x].pieceType, curY, curX)
-
-
-
-// function checkCheckmate(piecetype, curXX, curYY) {
-//     console.log("Current piece is " + piecetype);
-//     if (checking)
-//         switch (piecetype) {
-//             case 0:
-//                 checkPossiblePlaysSOLDIER(curXX, curYY);
-//             case 1:
-//                 checkPossiblePlaysHORSE(curXX, curYY);
-//             case 2:
-//                 checkPossiblePlaysBishop(curXX, curYY);
-//             case 3:
-//                 checkPossiblePlaysCASTLE(curXX, curYY);
-//             case 4:
-//                 checkPossiblePlaysQUEEN(curXX, curYY);
-//             case 5:
-//                 checkPossiblePlaysKING(curXX, curYY);
-//         }
-// }
 
 function changeCurrentTeam() {
     if (currentTeam === WHITE) {
