@@ -27,7 +27,7 @@ const VALID = 1;
 const VALID_CAPTURE = 2;
 let checking;
 let check;
-let movable = []
+let movable = [];
 let King_Pos;
 
 
@@ -150,6 +150,7 @@ function checkCheckmate() {
         window.location.reload();
     } else {
         board.resetValidMoves()
+        FLAG1 = false;
     }
 }
 
@@ -287,7 +288,11 @@ function checkPossibleMove(x, y) {
         if (board.tiles[y][x].team != EMPTY) return false;
         board.validMoves[y][x] = VALID;
     } catch (e) {
-        FLAG1 = true;
+        if (checking) {
+            console.log("Check 2");
+        } else {
+            FLAG1 = true;
+        }
 
     }
     if (checking) {
@@ -304,6 +309,7 @@ function checkPossibleCapture(x, y) {
     if (board.tiles[y][x].team !== getOppositeTeam(currentTeam)) return false;
 
     board.validMoves[y][x] = VALID_CAPTURE;
+
     if (checking) {
         movable.push([x, y]);
         return true;
