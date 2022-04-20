@@ -1,5 +1,5 @@
 # ChessGame-JS
- This is a Complete simple two player ChessGame made with a pure Object oriented Javascript.
+ This is a Complete simple two player ChessGame made with a pure <abbr title="Pure JavaScript">Object oriented Javascript.</abbr>
 
 All move types are supported, including **Checkmate, Castling and Promotion**
  
