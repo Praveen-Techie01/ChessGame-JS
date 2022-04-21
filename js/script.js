@@ -146,10 +146,11 @@ function checkCheckmate() {
         }
     }
     if (have) {
-        alert("CHECKMATE !!!")
-        window.location.reload();
+        alert("CHECKMATE !!!");
+        board.resetValidMoves();
+        FLAG1 = false;
     } else {
-        board.resetValidMoves()
+        board.resetValidMoves();
         FLAG1 = false;
     }
 }
