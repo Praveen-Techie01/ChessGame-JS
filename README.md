@@ -6,3 +6,5 @@ All move types are supported, including **Checkmate, Castling and Promotion**
  **You can Play it here** : https://praveen-techie01.github.io/ChessGame-JS/
  
 _Hope you like it_ ❤️
+
+[![](https://github.com/Praveen-Techie01/ChessGame-JS/blob/main/img/ChessGame.png)](https://github.com/Praveen-Techie01/ChessGame-JS/blob/main/img/ChessGame.png)
