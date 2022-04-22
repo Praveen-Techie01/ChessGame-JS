@@ -367,6 +367,12 @@ function moveSelectedPiece(x, y) {
                             FLAG1 = false;
                             break;
                         }
+                    default:
+                        {
+                            board.tiles[y][x].pieceType = SOLDIER;
+                            FLAG1 = false;
+                            break;
+                        }
                 }
                 break;
             }
