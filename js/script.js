@@ -337,7 +337,7 @@ function moveSelectedPiece(x, y) {
         while (true) {
             inputchoice = window.prompt("PLEASE SELECT THE NUMBER BELOW TO YOUR PIECE ACCORDINGLY : \n 1 : For Horse \n 2 : For Bishop \n 3 : For Rook \n 4 : For Queen ");
             inputchoice = parseInt(inputchoice);
-            if (inputchoice > 3 || inputchoice < 1) {
+            if (inputchoice > 4 || inputchoice < 1) {
                 continue;
             } else {
                 switch (inputchoice) {
