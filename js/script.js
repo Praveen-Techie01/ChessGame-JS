@@ -335,7 +335,7 @@ function moveSelectedPiece(x, y) {
     if (FLAG1 && whiteWins == 0 && blackWins == 0) {
         let inputchoice;
         while (true) {
-            inputchoice = window.prompt("PLEASE SELECT THE NUMBER BELOW TO YOUR PIECE ACCORDINGLY : \n  1 : For Horse \n 2 : For Bishop \n 3 : For Rook");
+            inputchoice = window.prompt("PLEASE SELECT THE NUMBER BELOW TO YOUR PIECE ACCORDINGLY : \n 1 : For Horse \n 2 : For Bishop \n 3 : For Rook \n 4 : For Queen ");
             inputchoice = parseInt(inputchoice);
             if (inputchoice > 3 || inputchoice < 1) {
                 continue;
@@ -358,6 +358,12 @@ function moveSelectedPiece(x, y) {
                     case 3:
                         {
                             board.tiles[y][x].pieceType = CASTLE;
+                            FLAG1 = false;
+                            break;
+                        }
+                    case 4:
+                        {
+                            board.tiles[y][x].pieceType = QUEEN;
                             FLAG1 = false;
                             break;
                         }
